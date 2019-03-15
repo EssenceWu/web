@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="0" http-equiv="expires">
+    <meta content="telephone=no, address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <link href="/lookup/assets/font/iconfont.css" rel="stylesheet">
+    <link href="/lookup/styles/lookup.css?time={{time}}" rel='stylesheet' type='text/css'/>
+    <!--自适应方案-->
+    <script>!function(e,t){function i(){var t=n.getBoundingClientRect().width;t/m>540&&(t=540*m);var i=t/10;n.style.fontSize=i+"px",d.rem=e.rem=i}var a,r=e.document,n=r.documentElement,o=r.querySelector('meta[name="viewport"]'),l=r.querySelector('meta[name="flexible"]'),m=0,s=0,d=t.flexible||(t.flexible={});if(o){console.warn("将根据已有的meta标签来设置缩放比例");var p=o.getAttribute("content").match(/initial\-scale=([\d\.]+)/);p&&(s=parseFloat(p[1]),m=parseInt(1/s))}else if(l){var c=l.getAttribute("content");if(c){var u=c.match(/initial\-dpr=([\d\.]+)/),f=c.match(/maximum\-dpr=([\d\.]+)/);u&&(m=parseFloat(u[1]),s=parseFloat((1/m).toFixed(2))),f&&(m=parseFloat(f[1]),s=parseFloat((1/m).toFixed(2)))}}if(!m&&!s){var v=(e.navigator.appVersion.match(/android/gi),e.navigator.appVersion.match(/iphone/gi)),h=e.devicePixelRatio;m=v?h>=3&&(!m||m>=3)?3:h>=2&&(!m||m>=2)?2:1:1,s=1/m}if(n.setAttribute("data-dpr",m),!o)if(o=r.createElement("meta"),o.setAttribute("name","viewport"),o.setAttribute("content","initial-scale="+s+", maximum-scale="+s+", minimum-scale="+s+", user-scalable=no"),n.firstElementChild)n.firstElementChild.appendChild(o);else{var x=r.createElement("div");x.appendChild(o),r.write(x.innerHTML)}e.addEventListener("resize",function(){clearTimeout(a),a=setTimeout(i,300)},!1),e.addEventListener("pageshow",function(e){e.persisted&&(clearTimeout(a),a=setTimeout(i,300))},!1),"complete"===r.readyState?r.body.style.fontSize=12*m+"px":r.addEventListener("DOMContentLoaded",function(){r.body.style.fontSize=12*m+"px"},!1),i(),d.dpr=e.dpr=m,d.refreshRem=i,d.rem2px=function(e){var t=parseFloat(e)*this.rem;return"string"==typeof e&&e.match(/rem$/)&&(t+="px"),t},d.px2rem=function(e){var t=parseFloat(e)/this.rem;return"string"==typeof e&&e.match(/px$/)&&(t+="rem"),t}}(window,window.lib||(window.lib={}));</script>
+    <title>公积金详情</title>
+</head>
+<body>
+    <div id="loading">
+      <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+      </div>
+        <p>正在加载中<span id="progressBar"></span>%</p>
+    </div>
+    <section class="bar-nav cMdGray clearfix {{#if is_app}}hide{{/if}}">
+        <i class="iconfont icon-jiantou1 l goBack"></i>
+        <strong class="title">公积金详情</strong>
+    </section>
+    <section class="shebao-detail-hd f24 hide" id="shebaoInfo" data-sign="{{sign}}" data-cityid="{{city_id}}" data-flush="{{flush}}" data-userid="{{userId}}">
+        <div class="shebao-name-hd">
+            <div>
+                <div>
+                    <h3>暂无数据</h3><span class="no-data">暂无数据</span><i class="no-data" id="update" data-searchId=""></i>
+                </div>
+                <div>
+                    <i id="accountPage" data-isapp="{{is_app}}"></i>
+                    <i id="addAccount"></i>
+                </div>
+            </div>
+            <p>最后更新：<span>无</span></p>
+        </div>
+        <p class="no-data">账户：<span>无</span></p>
+        <p class="no-data">余额：<span>无</span></p>
+        <p class="no-data">累计缴纳：<span>无</span>个月</p>
+        <p class="no-data">参保城市：<span>无</span></p>
+        <p class="no-data">参保单位：<span>无</span></p>
+    </section>
+    <section class="shebao-detail-hd f24 hide gray1-color" id="tip">
+        <p>提示：</p>
+        <p>社保中心官方网站未能查询到您的社保信息，您可以登陆官网或者拨打【区号+12333】咨询具体原因。</p>
+    </section>
+    <section class="shebao-detail-enter l-c hide isHide">
+        <h3><a class="main-color block" id="lookDetail" href="/fund_detail?city_id={{city_id}}&type={{type}}&is_app={{is_app}}">查看缴纳明细</a></h3>
+    </section>
+    <section class="zhanwei-ac hide isHide"></section>
+    <section class="shebao-detail-ad hide isHide">
+        <h3>推荐服务</h3>
+        <a href="https://m.dashebao.com/dsbapi/v2/order/paySocialSecurity_a/token/{{sign}}/city_id/{{city_id}}/navbar/{{is_app}}.html">
+            <i></i>
+            <span>工作可以换，社保不能断！社保自己也能继续交</span>
+        </a>
+        <a href="https://m.dashebao.com/dsbapi/v1/Ad/rong360/token/{{sign}}.html">
+            <i></i>
+            <span>社保优贷，为优质社保用户匹配上千款贷款产品</span>  
+        </a>
+        <a href="http://api.dashebao.com/dsbapi/v1/relocation/stats?key=zhongan">
+            <i></i>
+            <span>社保补充险，享600万报销，点击获取更全面保障</span>
+        </a>
+    </section>
+    <div class="servies {{#if group}}hide{{/if}}">
+        <p>服务由大社保网提供 </p>
+    </div>
+    <script src="/lookup/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/lookup/scripts/base/global.js"></script>
+    <script src="/lookup/scripts/fund.js?time={{time}}"></script>
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1273988714' class='hide' %3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1273988714' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</body>
+
+</html>
